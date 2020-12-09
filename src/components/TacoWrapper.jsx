@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Octokit } from '@octokit/core'
 import { TacoCard } from './TacoCard'
+import { TacoRecipe } from './TacoRecipe';
 
 export const TacoWrapper = () => {
-  const accessToken = process.env.MD_KEY
+  const accessToken = process.env.REACT_APP_MD_KEY
   const octokit = new Octokit({ auth: accessToken })
   const url = 'http://taco-randomizer.herokuapp.com/random/?full-taco=true'
 
@@ -19,7 +20,6 @@ export const TacoWrapper = () => {
   }
 
   MDToHTML()
-  console.log(recipeMDToHTML) // Remove
 
   useEffect(() => {
     fetch(url)
@@ -31,6 +31,9 @@ export const TacoWrapper = () => {
   }, [])
 
   return (
-    <TacoCard fullTaco={fullTaco} />
+    <>
+      <TacoCard fullTaco={fullTaco} />
+      <TacoRecipe recipeMDToHTML={recipeMDToHTML} />
+    </>
   )
 };
