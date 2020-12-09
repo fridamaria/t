@@ -1,36 +1,39 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import styled from 'styled-components'
 import { Octokit } from '@octokit/core'
-import { TacoCard } from './TacoCard'
+import parse from 'html-react-parser'
 
-export const TacoWrapper = () => {
+const RecipeOuter = styled.div``
+
+export const TacoRecipe = () => {
   const accessToken = process.env.MD_KEY
   const octokit = new Octokit({ auth: accessToken })
   const url = 'http://taco-randomizer.herokuapp.com/random/?full-taco=true'
 
-  const [fullTaco, setFullTaco] = useState('')
   const [recipe, setRecipe] = useState('')
-  const [recipeMDToHTML, setRecipeMDToHTML] = useState('')
+  const [recipeMarkdownSorted, setRecipeMarkdownSorted] = useState('')
 
-  const MDToHTML = async () => {
+  const markdownToHTML = async () => {
     const response = await octokit.request('POST /markdown', {
       text: recipe
     })
-    setRecipeMDToHTML(response.data)
+    setRecipeMarkdownSorted(response.data)
   }
 
-  MDToHTML()
-  console.log(recipeMDToHTML) // Remove
+  markdownToHTML()
 
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
       .then((json) => {
-        setFullTaco(json)
+        console.log(json)
         setRecipe(json.recipe)
       })
   }, [])
 
   return (
-    <TacoCard fullTaco={fullTaco} />
+    <RecipeOuter>
+      {parse(recipeMarkdownSorted)}
+    </RecipeOuter>
   )
-};
+}
