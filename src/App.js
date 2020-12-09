@@ -1,9 +1,10 @@
 import React from 'react'
+import { TacoCard } from 'components/TacoCard'
 
 export const App = () => {
   return (
     <div>
-      Find me in src/app.js!
+      <TacoCard />
     </div>
   )
 }
