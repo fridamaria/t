@@ -1,10 +1,10 @@
 import React from 'react'
-import { TacoCard } from 'components/TacoCard'
+import { TacoWrapper } from 'components/TacoWrapper'
 
 export const App = () => {
   return (
     <div>
-      <TacoCard />
+      <TacoWrapper />
     </div>
   )
 }

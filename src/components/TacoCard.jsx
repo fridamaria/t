@@ -1,8 +1,6 @@
 import { Button } from 'lib/Button'
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { Octokit } from '@octokit/core'
-import parse from 'html-react-parser'
 
 const CardOuter = styled.article`
   max-width: 1184px;
@@ -61,14 +59,6 @@ const Info = styled.div`
   margin-bottom: 20px;
   font-size: 20px;
   line-height: 28px;
-
-  h1, h2, h4, hr, ul, ol, img {
-    display: none
-  }
-
-  > :not(:nth-child(2)) {
-    display: none;
-  }
 `
 const ButtonContainer = styled.div`
   display: flex;
@@ -81,42 +71,24 @@ const ReadMoreLink = styled.a`
   margin-left: 12px;
 `
 
-export const TacoCard = () => {
-  const url = 'http://taco-randomizer.herokuapp.com/random/?full-taco=true'
-  const octokit = new Octokit({ auth: '9166f7e6c248ce416306d25ffe106b48950390dd' })
-
-  const [recipe, setRecipe] = useState('')
-  const [recipeName, setRecipeName] = useState('')
-  const [recipeMDToHTML, setRecipeMDToHTML] = useState('')
-
-  const MDToHTML = async () => {
-    const response = await octokit.request('POST /markdown', {
-      text: recipe
-    })
-    setRecipeMDToHTML(response.data)
-  }
-
-  MDToHTML()
-
-  useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((json) => {
-        console.log(json)
-        setRecipeName(json.name)
-        setRecipe(json.recipe)
-      })
-  }, [])
-
+export const TacoCard = ({ fullTaco }) => {
   return (
     <CardOuter>
       <CardInner>
         <CardImg />
         <CardInfo>
           <InfoTitle>
-            <TitleLink>{recipeName}</TitleLink>
+            <TitleLink>{fullTaco.name}</TitleLink>
           </InfoTitle>
-          <Info>{parse(recipeMDToHTML)}</Info>
+          <Info>
+            <p>
+              {fullTaco.base_layer && <span>{fullTaco.base_layer.name}</span>}
+              {fullTaco.mixin && <span> with {fullTaco.mixin.name}</span>}
+              {fullTaco.condiment && <span>, garnished with {fullTaco.condiment.name}</span>}
+              {fullTaco.seasoning && <span> topped off with {fullTaco.seasoning.name}</span>}
+              {fullTaco.shell && <span> and wrapped in {fullTaco.shell.name}</span>}
+            </p>
+          </Info>
         </CardInfo>
         <ButtonContainer>
           <Button title="Like" />
