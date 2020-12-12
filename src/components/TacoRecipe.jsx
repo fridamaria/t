@@ -12,10 +12,13 @@ const RecipeOuter = styled.div`
 export const TacoRecipe = ({ recipe }) => {
   const [recipeHTML, setRecipeHTML] = useState('')
   const recipeStripped = recipeHTML
-    .replace(/<h1>(.*)<\/h1>/g, '') // remove h1-tags
+    .replace(/<h1[^>]*>/, '') // remove opeing h1-tags
+    .replace(/<span[^<]*><\/?span>(.*?)<\/h1>/, '')
     .replace(/<a[^>]*>|<\/a>/g, '') // removes unwanted a-tags
     .replace(/<p><img[^>]*><\/p>/g, '') // removes unwanted imgs
     .replace(/<hr>/g, '') // removes unwanted hr-tags
+
+  console.log(recipeStripped)
 
   useEffect(() => {
     MDToHTML(recipe)
