@@ -91,9 +91,9 @@ export const TacoCard = ({ fullTaco }) => {
           </Info>
         </CardInfo>
         <ButtonContainer>
-          <Button title="Like" />
+          <Button text="Like" />
           <ReadMoreLink>
-            <Button title="Read more" />
+            <Button text="Read more" />
           </ReadMoreLink>
         </ButtonContainer>
       </CardInner>
