@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { TacoIntro } from './TacoIntro'
 import { TacoRecipe } from './TacoRecipe'
-import { Button } from '../lib/Button'
+import { Header } from './Header'
 
 const Body = styled.div`
   width: 100%;
@@ -27,8 +27,8 @@ export const TacoWrapper = () => {
 
   return (
     <>
+      <Header tacoCount={tacoCount} setTacoCount={setTacoCount} />
       <Body>
-        <Button text="New Taco" onClick={() => setTacoCount(tacoCount + 1)} />
         <TacoIntro fullTaco={fullTaco} />
         <TacoRecipe recipe={recipe} />
       </Body>
