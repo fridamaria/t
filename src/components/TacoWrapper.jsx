@@ -5,6 +5,9 @@ import { TacoRecipe } from './TacoRecipe'
 import { Header } from './Header'
 import { SubRecipeGrid } from './SubRecipeGrid'
 
+const Wrapper = styled.div`
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+`
 const Body = styled.div`
   width: 100%;
   max-width: 1180px;
@@ -27,13 +30,13 @@ export const TacoWrapper = () => {
   }, [tacoCount])
 
   return (
-    <>
+    <Wrapper>
       <Header tacoCount={tacoCount} setTacoCount={setTacoCount} />
       <Body>
         <TacoIntro fullTaco={fullTaco} />
         <TacoRecipe recipe={recipe} />
         <SubRecipeGrid fullTaco={fullTaco} />
       </Body>
-    </>
+    </Wrapper>
   )
 };

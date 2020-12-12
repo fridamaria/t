@@ -11,13 +11,23 @@ const IntroOuter = styled.div`
 `
 const IntroTitle = styled.h1`
   font-size: 48px;
+  font-weight: 500;
   line-height: 58px;
   margin: 0;
-  margin-bottom: 24px;
+  margin-bottom: 13px;
+  text-transform: uppercase;
 `
 const Intro = styled.p`
   font-size: 32px;
+  font-weight: 300;
   line-height: 40px;
+  margin: 0;
+  margin-bottom: 16px;
+`
+const Link = styled.a`
+  color: #000;
+  text-decoration: none;
+  border-bottom: 2px solid #000;
   margin-bottom: 16px;
 `
 const ImgContainer = styled.div`
@@ -28,9 +38,19 @@ const ImgContainer = styled.div`
   background-repeat: no-repeat;
   width: 100%;
 `
-const CategoryContainer = styled.section``
-const CategoryType = styled.h4``
-const Category = styled.h3``
+const CategoryContainer = styled.section`
+  margin-top: 24px;
+`
+const CategoryType = styled.h4`
+  margin: 0;
+  color: #939393;
+  font-size: 14px;
+  line-height: 16.8px;
+`
+const Category = styled.h3`
+  margin-top: 12px;
+  margin-bottom: 24px;
+`
 const ButtonContainer = styled.section`
   display: flex;
   height: 56px;
@@ -57,8 +77,7 @@ export const TacoIntro = ({ fullTaco }) => {
           Grab your Cholula and have a look at the recipe below.
         </Intro>
         <div>
-          &#8594;
-          <a href="https://taco-randomizer.herokuapp.com/">taco-randomizer.herokuapp.com</a>
+          &#8594; <Link href="https://taco-randomizer.herokuapp.com/">taco-randomizer.herokuapp.com</Link>
         </div>
         <CategoryContainer>
           <CategoryType>Type</CategoryType>

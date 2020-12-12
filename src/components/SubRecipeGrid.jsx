@@ -5,6 +5,7 @@ import { TacoCard } from './TacoCard'
 const GridOuter = styled.div`
   padding: 60px 0px;
   margin: 0px 16px;
+  border-top: 1px solid #e5e5e5;
 `
 const Grid = styled.section`
   display: grid;
