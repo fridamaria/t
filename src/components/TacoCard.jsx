@@ -4,35 +4,36 @@ import styled from 'styled-components'
 
 const CardOuter = styled.article`
   max-width: 1184px;
-
-  @media(min-width: 577px) {
-    height: 280px;
-  }
 `
 const CardInner = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-areas: "image" "info" "buttons";
-  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
   
   @media(min-width: 577px) {
     grid-template-columns: 280px 1fr;
     grid-template-areas: "image info" "image buttons";
-    border: 1px solid #000;
+    border-bottom: 1px solid #000;
+    height: 280px;
+    box-sizing: border-box;
   }
 `
 const CardImg = styled.div`
   grid-area: image;
-  background-image: url("https://source.unsplash.com/300x300/?burrito");
+  background-image: url("https://source.unsplash.com/280x280/?burrito");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
   height: 100vw;
+  box-sizing: border-box;
 
   @media(min-width: 577px) {
     width: 280px;
     height: 280px;
     border-right: 1px solid #000;
+    box-sizing: border-box;
   }
 `
 const CardInfo = styled.div`
@@ -71,24 +72,16 @@ const ReadMoreLink = styled.a`
   margin-left: 12px;
 `
 
-export const TacoCard = ({ fullTaco }) => {
+export const TacoCard = ({ subRecipe }) => {
   return (
     <CardOuter>
       <CardInner>
         <CardImg />
         <CardInfo>
           <InfoTitle>
-            <TitleLink>{fullTaco.name}</TitleLink>
+            <TitleLink>{subRecipe.name}</TitleLink>
           </InfoTitle>
-          <Info>
-            <p>
-              {fullTaco.base_layer && <span>{fullTaco.base_layer.name}</span>}
-              {fullTaco.mixin && <span> with {fullTaco.mixin.name}</span>}
-              {fullTaco.condiment && <span>, garnished with {fullTaco.condiment.name}</span>}
-              {fullTaco.seasoning && <span> topped off with {fullTaco.seasoning.name}</span>}
-              {fullTaco.shell && <span> and wrapped in {fullTaco.shell.name}</span>}
-            </p>
-          </Info>
+          <Info />
         </CardInfo>
         <ButtonContainer>
           <Button text="Like" />

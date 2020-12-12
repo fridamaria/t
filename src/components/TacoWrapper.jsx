@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { TacoIntro } from './TacoIntro'
 import { TacoRecipe } from './TacoRecipe'
 import { Header } from './Header'
+import { SubRecipeGrid } from './SubRecipeGrid'
 
 const Body = styled.div`
   width: 100%;
@@ -31,6 +32,7 @@ export const TacoWrapper = () => {
       <Body>
         <TacoIntro fullTaco={fullTaco} />
         <TacoRecipe recipe={recipe} />
+        <SubRecipeGrid fullTaco={fullTaco} />
       </Body>
     </>
   )
