@@ -34,7 +34,7 @@ export const TacoWrapper = () => {
       <Header tacoCount={tacoCount} setTacoCount={setTacoCount} />
       <Body>
         <TacoIntro fullTaco={fullTaco} />
-        <TacoRecipe recipe={recipe} />
+        <TacoRecipe recipe={recipe} mainRecipe />
         <SubRecipeGrid fullTaco={fullTaco} />
       </Body>
     </Wrapper>

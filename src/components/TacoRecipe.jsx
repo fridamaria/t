@@ -4,7 +4,7 @@ import parse from 'html-react-parser'
 import { MDToHTML } from 'utils/Utils'
 
 const RecipeOuter = styled.div`
-  border-top: 1px solid #e5e5e5;
+  border-top: ${(props) => (props.mainRecipe ? '1px solid #e5e5e5' : 'none')};
   padding: 60px 0px;
   margin: 0px 16px;
 
@@ -36,7 +36,7 @@ const Bold = styled.span`
   font-weight: 500;
 `
 
-export const TacoRecipe = ({ recipe }) => {
+export const TacoRecipe = ({ recipe, mainRecipe, recipeName }) => {
   const [recipeHTML, setRecipeHTML] = useState('')
   const recipeStripped = recipeHTML
     .replace(/<h1[^>]*>/, '') // remove opeing h1-tags
@@ -44,8 +44,6 @@ export const TacoRecipe = ({ recipe }) => {
     .replace(/<a[^>]*>|<\/a>/g, '') // removes unwanted a-tags
     .replace(/<p><img[^>]*><\/p>/g, '') // removes unwanted imgs
     .replace(/<hr>/g, '') // removes unwanted hr-tags
-
-  console.log(recipeStripped)
 
   useEffect(() => {
     MDToHTML(recipe)
@@ -56,14 +54,18 @@ export const TacoRecipe = ({ recipe }) => {
 
   return (
     <RecipeOuter>
-      <h2>Recipe</h2>
+      {mainRecipe ? <h2>Recipe</h2> : <h1>{recipeName}</h1>}
       {parse(recipeStripped)}
-      <p>Have a look at the complementary recepies below to complete your taco.</p>
-      <p>
-        <Bold>Does this taco not tickle your fancy? </Bold>
-        Do the taco shuffle!
-        Load a new random recipe by clicking the button in the upper right corner.
-      </p>
+      {mainRecipe && (
+        <>
+          <p>Have a look at the complementary recepies below to complete your taco.</p>
+          <p>
+            <Bold>Does this taco not tickle your fancy? </Bold>
+            Do the taco shuffle!
+            Load a new random recipe by clicking the button in the upper right corner.
+          </p>
+        </>
+      )}
     </RecipeOuter>
   )
 }

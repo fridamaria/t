@@ -2,6 +2,7 @@ import { Button } from 'lib/Button'
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import Modal from 'react-modal';
+import { TacoRecipe } from './TacoRecipe';
 
 const CardOuter = styled.article`
   max-width: 1184px;
@@ -75,13 +76,15 @@ const ReadMoreLink = styled.a`
 
 export const TacoCard = ({ subRecipe, imgSlug }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false)
+
+  console.log(subRecipe)
   return (
     <CardOuter>
       <CardInner>
         <CardImg imgSlug={imgSlug} />
         <CardInfo>
           <InfoTitle>
-            <TitleLink>{subRecipe.name}</TitleLink>
+            <TitleLink onClick={() => setModalIsOpen(!modalIsOpen)}>{subRecipe.name}</TitleLink>
           </InfoTitle>
           <Info />
         </CardInfo>
@@ -95,7 +98,7 @@ export const TacoCard = ({ subRecipe, imgSlug }) => {
           isOpen={modalIsOpen}
           onRequestClose={() => setModalIsOpen(!modalIsOpen)}
           contentLabel="Example Modal">
-          Placeholder
+          <TacoRecipe recipe={subRecipe.recipe} recipeName={subRecipe.name} />
         </Modal>
       </CardInner>
     </CardOuter>
