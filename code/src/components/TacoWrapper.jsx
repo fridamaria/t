@@ -19,7 +19,7 @@ const Footer = styled.footer`
 `
 
 export const TacoWrapper = () => {
-  const url = 'http://taco-randomizer.herokuapp.com/random/?full-taco=true'
+  const url = 'https://taco-randomizer.herokuapp.com/random/?full-taco=true'
   const [tacoCount, setTacoCount] = useState(1)
   const [fullTaco, setFullTaco] = useState('')
   const [recipe, setRecipe] = useState('')
