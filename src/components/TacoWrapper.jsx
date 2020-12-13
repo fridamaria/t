@@ -12,6 +12,11 @@ const Body = styled.div`
   max-width: 1180px;
   margin: 0px auto;
 `
+const Footer = styled.footer`
+  height: 268px;
+  padding: 40px;
+  background: #000;
+`
 
 export const TacoWrapper = () => {
   const url = 'http://taco-randomizer.herokuapp.com/random/?full-taco=true'
@@ -35,6 +40,7 @@ export const TacoWrapper = () => {
         <TacoIntro fullTaco={fullTaco} />
         <RecipeGrid fullTaco={fullTaco} recipe={recipe} />
       </Body>
+      <Footer />
     </Wrapper>
   )
 };

@@ -1,6 +1,7 @@
 import { Button } from 'lib/Button'
 import React from 'react'
 import styled from 'styled-components'
+import { faHeart, faBookmark, faAlignJustify, faPlus } from '@fortawesome/free-solid-svg-icons'
 
 const IntroOuter = styled.div`
   display: grid;
@@ -54,13 +55,18 @@ const Category = styled.h3`
 const ButtonContainer = styled.section`
   display: flex;
   height: 56px;
+  margin-left: -16px;
 `
 const LikeWrapper = styled.div`
   padding: 8px;
-  border-right: 1px solid #e7e7e9;
+  border-right: 1px solid #E7E7E9;
 `
 const ActionsWrapper = styled.div`
   margin: 8px;
+`
+const SecondaryText = styled.span`
+  margin-left: 12px;
+  color: #E7E7E9;
 `
 
 export const TacoIntro = ({ fullTaco }) => {
@@ -116,12 +122,15 @@ export const TacoIntro = ({ fullTaco }) => {
 
         <ButtonContainer>
           <LikeWrapper>
-            <Button text="Like" />
+            <Button buttonIcon={faHeart} margin="12px" disabled disabledColor="#E7E7E9">
+              Like
+              <SecondaryText>130</SecondaryText>
+            </Button>
           </LikeWrapper>
           <ActionsWrapper>
-            <Button text="O" />
-            <Button text="O" />
-            <Button text="O" />
+            <Button buttonIcon={faBookmark} disabled disabledColor="#E7E7E9" />
+            <Button buttonIcon={faAlignJustify} disabled disabledColor="#E7E7E9" />
+            <Button buttonIcon={faPlus} disabled disabledColor="#E7E7E9" />
           </ActionsWrapper>
         </ButtonContainer>
       </div>

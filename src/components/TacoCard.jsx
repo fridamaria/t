@@ -2,6 +2,7 @@ import { Button } from 'lib/Button'
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import Modal from 'react-modal';
+import { faHeart, faAlignLeft } from '@fortawesome/free-solid-svg-icons'
 import { TacoRecipe } from './TacoRecipe';
 
 const CardOuter = styled.article`
@@ -79,11 +80,13 @@ const ButtonContainer = styled.div`
   display: flex;
   align-items: flex-end;
   grid-area: buttons;
+  margin-left: -8px;
   padding: 40px;
   padding-top: 0;
 `
-const ReadMoreLink = styled.a`
+const SecondaryText = styled.span`
   margin-left: 12px;
+  color: #E7E7E9;
 `
 
 export const TacoCard = ({ recipe, imgSlug, recipeName, mainRecipe, info }) => {
@@ -119,10 +122,18 @@ export const TacoCard = ({ recipe, imgSlug, recipeName, mainRecipe, info }) => {
           <Info>{info}</Info>
         </CardInfo>
         <ButtonContainer>
-          <Button text="Like" />
-          <ReadMoreLink>
-            <Button text="Read more" onClick={() => setModalIsOpen(!modalIsOpen)} />
-          </ReadMoreLink>
+          <Button buttonIcon={faHeart} margin="12px" disabled disabledColor="#E7E7E9">
+            Like
+            <SecondaryText>130</SecondaryText>
+          </Button>
+          <a>
+            <Button
+              buttonIcon={faAlignLeft}
+              margin="12px"
+              onClick={() => setModalIsOpen(!modalIsOpen)}>
+                Read more
+            </Button>
+          </a>
         </ButtonContainer>
         <Modal
           isOpen={modalIsOpen}

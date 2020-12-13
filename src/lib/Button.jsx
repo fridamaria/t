@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import styled from 'styled-components'
 
@@ -9,7 +10,9 @@ const StyledButton = styled.button`
   border-radius: 8px;
   outline: none;
   background: #fff;
-  font-weight: 600;
+  color: ${(props) => props.disabledColor || '#000'};
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-weight: 500;
   font-size: ${(props) => props.fontSize || '14px'};
   line-height: 24px;
 
@@ -18,16 +21,32 @@ const StyledButton = styled.button`
     border: ${(props) => props.border || '1px solid #E7E7E9'}
   }
 `
+const Icon = styled.i`
+  margin-right: ${(props) => props.margin || '0'};
+`
 
-export const Button = ({ text, onClick, hover, border, fontSize }) => {
+export const Button = ({
+  onClick,
+  hover,
+  border,
+  fontSize,
+  buttonIcon,
+  margin,
+  disabled,
+  disabledColor,
+  children
+}) => {
   return (
     <StyledButton
       type="button"
       onClick={onClick}
       hover={hover}
       border={border}
-      fontSize={fontSize}>
-      {text}
+      fontSize={fontSize}
+      disabled={disabled}
+      disabledColor={disabledColor}>
+      {buttonIcon && <Icon margin={margin}><FontAwesomeIcon icon={buttonIcon} /></Icon>}
+      {children}
     </StyledButton>
   )
 }

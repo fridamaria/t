@@ -43,11 +43,12 @@ export const Header = ({ tacoCount, setTacoCount }) => {
         </TitleWrapper>
         <ButtonWrapper>
           <Button
-            text={<span role="img" aria-label="eyes">👀</span>}
             onClick={() => setTacoCount(tacoCount + 1)}
             hover="#000"
             border="1px solid #000"
-            fontSize="22px" />
+            fontSize="22px">
+            <span role="img" aria-label="eyes">👀</span>
+          </Button>
         </ButtonWrapper>
       </TacoHeader>
     </HeaderWrapper>
