@@ -10,7 +10,7 @@ const StyledButton = styled.button`
   border-radius: 8px;
   outline: none;
   background: #fff;
-  color: ${(props) => props.disabledColor || '#000'};
+  color: '#000';
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
   font-weight: 500;
   font-size: ${(props) => props.fontSize || '14px'};
@@ -20,6 +20,14 @@ const StyledButton = styled.button`
     background: ${(props) => props.hover || '#E7E7E9'};
     border: ${(props) => props.border || '1px solid #E7E7E9'}
   }
+
+  ${(props) => props.disabled && ({
+    color: '#E7E7E9',
+
+    '&:hover': {
+      background: '#fff'
+    }
+  })}
 `
 const Icon = styled.i`
   margin-right: ${(props) => props.margin || '0'};
@@ -33,7 +41,6 @@ export const Button = ({
   buttonIcon,
   margin,
   disabled,
-  disabledColor,
   children
 }) => {
   return (
@@ -43,8 +50,7 @@ export const Button = ({
       hover={hover}
       border={border}
       fontSize={fontSize}
-      disabled={disabled}
-      disabledColor={disabledColor}>
+      disabled={disabled}>
       {buttonIcon && <Icon margin={margin}><FontAwesomeIcon icon={buttonIcon} /></Icon>}
       {children}
     </StyledButton>

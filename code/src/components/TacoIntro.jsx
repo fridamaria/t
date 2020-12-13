@@ -139,15 +139,15 @@ export const TacoIntro = ({ fullTaco }) => {
 
         <ButtonContainer>
           <LikeWrapper>
-            <Button buttonIcon={faHeart} margin="12px" disabled disabledColor="#E7E7E9">
+            <Button buttonIcon={faHeart} margin="12px" disabled>
               Like
               <SecondaryText>130</SecondaryText>
             </Button>
           </LikeWrapper>
           <ActionsWrapper>
-            <Button buttonIcon={faBookmark} disabled disabledColor="#E7E7E9" />
-            <Button buttonIcon={faAlignJustify} disabled disabledColor="#E7E7E9" />
-            <Button buttonIcon={faPlus} disabled disabledColor="#E7E7E9" />
+            <Button buttonIcon={faBookmark} disabled />
+            <Button buttonIcon={faAlignJustify} disabled />
+            <Button buttonIcon={faPlus} disabled />
           </ActionsWrapper>
         </ButtonContainer>
       </IntroContainer>

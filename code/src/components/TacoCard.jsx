@@ -121,7 +121,7 @@ export const TacoCard = ({ recipe, imgSlug, recipeName, mainRecipe, info }) => {
           <Info>{info}</Info>
         </CardInfo>
         <ButtonContainer>
-          <Button buttonIcon={faHeart} margin="12px" disabled disabledColor="#E7E7E9">
+          <Button buttonIcon={faHeart} margin="12px" disabled>
             Like
             <SecondaryText>130</SecondaryText>
           </Button>
