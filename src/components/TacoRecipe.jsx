@@ -58,7 +58,7 @@ export const TacoRecipe = ({ recipe, mainRecipe, recipeName }) => {
       {parse(recipeStripped)}
       {mainRecipe && (
         <>
-          <p>Have a look at the complementary recepies below to complete your taco.</p>
+          <p>Have a look at the complementary recipes below to complete your taco.</p>
           <p>
             <Bold>Does this taco not tickle your fancy? </Bold>
             Do the taco shuffle!

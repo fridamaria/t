@@ -27,7 +27,7 @@ export const SubRecipeGrid = ({ fullTaco }) => {
   return (
     <GridOuter>
       <Grid>
-        <SubRecipeHeader>Complementary recipies</SubRecipeHeader>
+        <SubRecipeHeader>Complementary recipes</SubRecipeHeader>
         {fullTaco.base_layer && <TacoCard subRecipe={fullTaco.base_layer} imgSlug="burrito" />}
         {fullTaco.mixin && <TacoCard subRecipe={fullTaco.mixin} imgSlug="mexican-food" />}
         {fullTaco.condiment && <TacoCard subRecipe={fullTaco.condiment} imgSlug="guacamole" />}
