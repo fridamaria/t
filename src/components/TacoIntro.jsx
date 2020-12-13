@@ -7,8 +7,21 @@ const IntroOuter = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 60px;
-  padding: 60px 0px;
   margin: 0px 16px;
+  padding: 60px 0px;
+
+  @media(max-width: 770px) {
+    grid-template-columns: 1fr;
+    grid-template-areas: "photo" "info";
+    grid-gap: 20px;
+    margin: 0;
+    padding: 0 0 32px;
+  }
+`
+const IntroContainer = styled.div`
+  @media(max-width: 770px) {
+    padding: 16px;
+  }
 `
 const IntroTitle = styled.h1`
   font-size: 48px;
@@ -38,6 +51,10 @@ const ImgContainer = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
+
+  @media(max-width: 770px) {
+    grid-area: photo;
+  }
 `
 const CategoryContainer = styled.section`
   margin-top: 24px;
@@ -83,7 +100,7 @@ export const TacoIntro = ({ fullTaco }) => {
 
   return (
     <IntroOuter>
-      <div>
+      <IntroContainer>
         <IntroTitle>{fullTaco.name}</IntroTitle>
         <Intro>
           {fullTaco.base_layer && <span>{fullTaco.base_layer.name}</span>}
@@ -133,10 +150,8 @@ export const TacoIntro = ({ fullTaco }) => {
             <Button buttonIcon={faPlus} disabled disabledColor="#E7E7E9" />
           </ActionsWrapper>
         </ButtonContainer>
-      </div>
-      <div>
-        <ImgContainer />
-      </div>
+      </IntroContainer>
+      <ImgContainer />
     </IntroOuter>
   )
 }
