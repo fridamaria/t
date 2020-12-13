@@ -45,16 +45,17 @@ const Link = styled.a`
   margin-bottom: 16px;
 `
 const ImgContainer = styled.div`
+  @media(max-width: 770px) {
+    grid-area: photo;
+  }
+`
+const Img = styled.div`
   padding-bottom: 100%;
   background-image: url("https://source.unsplash.com/900x900/?burrito");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
-
-  @media(max-width: 770px) {
-    grid-area: photo;
-  }
 `
 const CategoryContainer = styled.section`
   margin-top: 24px;
@@ -151,7 +152,9 @@ export const TacoIntro = ({ fullTaco }) => {
           </ActionsWrapper>
         </ButtonContainer>
       </IntroContainer>
-      <ImgContainer />
+      <ImgContainer>
+          <Img />
+      </ImgContainer>
     </IntroOuter>
   )
 }
