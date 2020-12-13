@@ -6,12 +6,28 @@ const GridOuter = styled.div`
   padding: 60px 0px;
   margin: 0px 16px;
   border-top: 1px solid #e5e5e5;
+
+  @media(max-width: 770px) {
+    margin: 0;
+    padding: 0 0 32px;
+  }
 `
 const Grid = styled.section`
   display: grid;
   grid-template-columns: 1fr;
   border: 1px solid #000;
   border-bottom: none;
+
+  @media(max-width: 770px) {
+    border: none;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+  }
+
+  @media(max-width: 577px) {
+    border: none;
+    border-top: 1px solid #000;
+  }
 `
 const SubRecipeHeader = styled.div`
   display: flex;
