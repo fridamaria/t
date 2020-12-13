@@ -57,7 +57,7 @@ const InfoTitle = styled.h2`
   overflow: hidden;
   text-overflow: ellipsis;
 `
-const TitleLink = styled.a`
+const TitleLink = styled.span`
   &:hover {
     border-bottom: 2px solid #000;
     cursor: pointer;
