@@ -32,7 +32,7 @@ const Link = styled.a`
 `
 const ImgContainer = styled.div`
   padding-bottom: 100%;
-  background-image: url("https://source.unsplash.com/300x300/?burrito");
+  background-image: url("https://source.unsplash.com/900x900/?burrito");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -45,7 +45,7 @@ const CategoryType = styled.h4`
   margin: 0;
   color: #939393;
   font-size: 14px;
-  line-height: 16.8px;
+  line-height: 17px;
 `
 const Category = styled.h3`
   margin-top: 12px;

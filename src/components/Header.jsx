@@ -22,6 +22,10 @@ const TitleWrapper = styled.div`
   align-items: center;
   margin-left: 16px;
 `
+const Title = styled.h2`
+  font-size: 15px;
+  font-weight: 400;
+`
 const ButtonWrapper = styled.div`
   margin-right: 8px;
 `
@@ -31,10 +35,15 @@ export const Header = ({ tacoCount, setTacoCount }) => {
     <HeaderWrapper>
       <TacoHeader>
         <TitleWrapper>
-          <p>&#8226; TACOTESTING</p>
+          <Title>&#8226; T A C O T E S T I N G</Title>
         </TitleWrapper>
         <ButtonWrapper>
-          <Button text="New Taco" onClick={() => setTacoCount(tacoCount + 1)} />
+          <Button
+            text={<span role="img" aria-label="eyes">👀</span>}
+            onClick={() => setTacoCount(tacoCount + 1)}
+            onHoverBackground="#000"
+            border="1px solid #000"
+            fontSize="22px" />
         </ButtonWrapper>
       </TacoHeader>
     </HeaderWrapper>

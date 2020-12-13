@@ -9,15 +9,24 @@ const StyledButton = styled.button`
   border-radius: 8px;
   background: #fff;
   font-weight: 600;
-  font-size: 14px;
+  font-size: ${(props) => props.fontSize || '14px'};
   line-height: 24px;
 
-
   &:hover {
-    background: #E7E7E9;
+    background: ${(props) => props.onHoverBackground || '#E7E7E9'};
+    border: ${(props) => props.border || '1px solid #E7E7E9'}
   }
 `
 
-export const Button = ({ text, onClick }) => {
-  return <StyledButton type="button" onClick={onClick}>{text}</StyledButton>
+export const Button = ({ text, onClick, onHoverBackground, border, fontSize }) => {
+  return (
+    <StyledButton
+      type="button"
+      onClick={onClick}
+      onHoverBackground={onHoverBackground}
+      border={border}
+      fontSize={fontSize}>
+      {text}
+    </StyledButton>
+  )
 }

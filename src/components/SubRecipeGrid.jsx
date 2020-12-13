@@ -14,21 +14,25 @@ const Grid = styled.section`
   border-bottom: none;
 `
 const SubRecipeHeader = styled.div`
+  display: flex;
+  align-items: center;
+  height: 34px;
+  padding: 10px 40px;
   border-bottom: 1px solid #000;
+  font-weight: 500;
+  text-transform: uppercase;
 `
 
 export const SubRecipeGrid = ({ fullTaco }) => {
   return (
     <GridOuter>
       <Grid>
-        <SubRecipeHeader>
-          Sub recipe placeholder title
-        </SubRecipeHeader>
-        {fullTaco.base_layer && <TacoCard subRecipe={fullTaco.base_layer} />}
-        {fullTaco.mixin && <TacoCard subRecipe={fullTaco.mixin} />}
-        {fullTaco.condiment && <TacoCard subRecipe={fullTaco.condiment} />}
-        {fullTaco.seasoning && <TacoCard subRecipe={fullTaco.seasoning} />}
-        {fullTaco.shell && <TacoCard subRecipe={fullTaco.shell} />}
+        <SubRecipeHeader>Complementary recipies</SubRecipeHeader>
+        {fullTaco.base_layer && <TacoCard subRecipe={fullTaco.base_layer} imgSlug="burrito" />}
+        {fullTaco.mixin && <TacoCard subRecipe={fullTaco.mixin} imgSlug="mexican-food" />}
+        {fullTaco.condiment && <TacoCard subRecipe={fullTaco.condiment} imgSlug="guacamole" />}
+        {fullTaco.seasoning && <TacoCard subRecipe={fullTaco.seasoning} imgSlug="jalapeno" />}
+        {fullTaco.shell && <TacoCard subRecipe={fullTaco.shell} imgSlug="corn-tortilla" />}
       </Grid>
     </GridOuter>
   )

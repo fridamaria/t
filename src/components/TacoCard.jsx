@@ -1,6 +1,7 @@
 import { Button } from 'lib/Button'
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
+import Modal from 'react-modal';
 
 const CardOuter = styled.article`
   max-width: 1184px;
@@ -22,7 +23,7 @@ const CardInner = styled.div`
 `
 const CardImg = styled.div`
   grid-area: image;
-  background-image: url("https://source.unsplash.com/280x280/?burrito");
+  background-image: ${(props) => `url("https://source.unsplash.com/280x280/?${props.imgSlug}")`};
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -72,11 +73,12 @@ const ReadMoreLink = styled.a`
   margin-left: 12px;
 `
 
-export const TacoCard = ({ subRecipe }) => {
+export const TacoCard = ({ subRecipe, imgSlug }) => {
+  const [modalIsOpen, setModalIsOpen] = useState(false)
   return (
     <CardOuter>
       <CardInner>
-        <CardImg />
+        <CardImg imgSlug={imgSlug} />
         <CardInfo>
           <InfoTitle>
             <TitleLink>{subRecipe.name}</TitleLink>
@@ -86,9 +88,15 @@ export const TacoCard = ({ subRecipe }) => {
         <ButtonContainer>
           <Button text="Like" />
           <ReadMoreLink>
-            <Button text="Read more" />
+            <Button text="Read more" onClick={() => setModalIsOpen(!modalIsOpen)} />
           </ReadMoreLink>
         </ButtonContainer>
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={() => setModalIsOpen(!modalIsOpen)}
+          contentLabel="Example Modal">
+          Placeholder
+        </Modal>
       </CardInner>
     </CardOuter>
   )
