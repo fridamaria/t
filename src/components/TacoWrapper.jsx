@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { TacoIntro } from './TacoIntro'
-import { TacoRecipe } from './TacoRecipe'
 import { Header } from './Header'
-import { SubRecipeGrid } from './SubRecipeGrid'
+import { RecipeGrid } from './RecipeGrid'
 
 const Wrapper = styled.div`
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
@@ -34,8 +33,7 @@ export const TacoWrapper = () => {
       <Header tacoCount={tacoCount} setTacoCount={setTacoCount} />
       <Body>
         <TacoIntro fullTaco={fullTaco} />
-        <TacoRecipe recipe={recipe} mainRecipe />
-        <SubRecipeGrid fullTaco={fullTaco} />
+        <RecipeGrid fullTaco={fullTaco} recipe={recipe} />
       </Body>
     </Wrapper>
   )

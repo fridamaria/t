@@ -74,17 +74,18 @@ const ReadMoreLink = styled.a`
   margin-left: 12px;
 `
 
-export const TacoCard = ({ subRecipe, imgSlug }) => {
+export const TacoCard = ({ recipe, imgSlug, recipeName, mainRecipe }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false)
 
-  console.log(subRecipe)
   return (
     <CardOuter>
       <CardInner>
         <CardImg imgSlug={imgSlug} />
         <CardInfo>
           <InfoTitle>
-            <TitleLink onClick={() => setModalIsOpen(!modalIsOpen)}>{subRecipe.name}</TitleLink>
+            <TitleLink onClick={() => setModalIsOpen(!modalIsOpen)}>
+              {recipeName || recipe.name}
+            </TitleLink>
           </InfoTitle>
           <Info />
         </CardInfo>
@@ -98,7 +99,9 @@ export const TacoCard = ({ subRecipe, imgSlug }) => {
           isOpen={modalIsOpen}
           onRequestClose={() => setModalIsOpen(!modalIsOpen)}
           contentLabel="Example Modal">
-          <TacoRecipe recipe={subRecipe.recipe} recipeName={subRecipe.name} />
+          <TacoRecipe
+            recipe={mainRecipe ? recipe : recipe.recipe}
+            recipeName={recipeName || recipe.name} />
         </Modal>
       </CardInner>
     </CardOuter>

@@ -4,7 +4,6 @@ import parse from 'html-react-parser'
 import { MDToHTML } from 'utils/Utils'
 
 const RecipeOuter = styled.div`
-  border-top: ${(props) => (props.mainRecipe ? '1px solid #e5e5e5' : 'none')};
   padding: 60px 0px;
   margin: 0px 16px;
 
@@ -31,12 +30,8 @@ const RecipeOuter = styled.div`
     margin: 0;
   }
 `
-const Bold = styled.span`
-  margin-top: 8px;
-  font-weight: 500;
-`
 
-export const TacoRecipe = ({ recipe, mainRecipe, recipeName }) => {
+export const TacoRecipe = ({ recipe, recipeName }) => {
   const [recipeHTML, setRecipeHTML] = useState('')
   const recipeStripped = recipeHTML
     .replace(/<h1[^>]*>/, '') // remove opeing h1-tags
@@ -54,18 +49,8 @@ export const TacoRecipe = ({ recipe, mainRecipe, recipeName }) => {
 
   return (
     <RecipeOuter>
-      {mainRecipe ? <h2>Recipe</h2> : <h1>{recipeName}</h1>}
+      <h1>{recipeName}</h1>
       {parse(recipeStripped)}
-      {mainRecipe && (
-        <>
-          <p>Have a look at the complementary recipes below to complete your taco.</p>
-          <p>
-            <Bold>Does this taco not tickle your fancy? </Bold>
-            Do the taco shuffle!
-            Load a new random recipe by clicking the button in the upper right corner.
-          </p>
-        </>
-      )}
     </RecipeOuter>
   )
 }
