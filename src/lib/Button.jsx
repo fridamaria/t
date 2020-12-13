@@ -7,6 +7,7 @@ const StyledButton = styled.button`
   padding: 10px 16px;
   border: 1px solid #E7E7E9;
   border-radius: 8px;
+  outline: none;
   background: #fff;
   font-weight: 600;
   font-size: ${(props) => props.fontSize || '14px'};

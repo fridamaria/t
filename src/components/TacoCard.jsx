@@ -42,13 +42,19 @@ const CardInfo = styled.div`
   grid-area: info;
   padding: 40px;
   padding-bottom: 0;
+  overflow: hidden;
 `
 const InfoTitle = styled.h2`
+  height: 38px;
   margin: 0;
   margin-bottom: 8px;
+  padding-right: 10px;
   font-size: 32px;
-  line-height: 40px;
+  line-height: 38px;
   text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `
 const TitleLink = styled.a`
   &:hover {
@@ -57,11 +63,17 @@ const TitleLink = styled.a`
   }
 `
 const Info = styled.div`
+  display: -webkit-box;
+  max-width: 560px;
   margin: 0;
-  margin-right: 236px;
   margin-bottom: 20px;
+  font-family: 'Playfair Display', Times, serif;
   font-size: 20px;
   line-height: 28px;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `
 const ButtonContainer = styled.div`
   display: flex;
@@ -74,7 +86,7 @@ const ReadMoreLink = styled.a`
   margin-left: 12px;
 `
 
-export const TacoCard = ({ recipe, imgSlug, recipeName, mainRecipe }) => {
+export const TacoCard = ({ recipe, imgSlug, recipeName, mainRecipe, info }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false)
 
   return (
@@ -87,7 +99,7 @@ export const TacoCard = ({ recipe, imgSlug, recipeName, mainRecipe }) => {
               {recipeName || recipe.name}
             </TitleLink>
           </InfoTitle>
-          <Info />
+          <Info>{info}</Info>
         </CardInfo>
         <ButtonContainer>
           <Button text="Like" />

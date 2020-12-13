@@ -23,8 +23,12 @@ const TitleWrapper = styled.div`
   margin-left: 16px;
 `
 const Title = styled.h2`
-  font-size: 15px;
-  font-weight: 400;
+  font-size: 22px;
+  font-weight: 500;
+
+  span {
+    margin-right: 7px;
+  }
 `
 const ButtonWrapper = styled.div`
   margin-right: 8px;
@@ -35,7 +39,7 @@ export const Header = ({ tacoCount, setTacoCount }) => {
     <HeaderWrapper>
       <TacoHeader>
         <TitleWrapper>
-          <Title>&#8226; T A C O T E S T I N G</Title>
+          <Title><span>&#8226;</span> T A C O T E S T I N G</Title>
         </TitleWrapper>
         <ButtonWrapper>
           <Button
