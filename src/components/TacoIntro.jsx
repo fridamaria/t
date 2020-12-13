@@ -64,6 +64,17 @@ const ActionsWrapper = styled.div`
 `
 
 export const TacoIntro = ({ fullTaco }) => {
+  const fullTacoArray = [
+    'Main',
+    fullTaco.base_layer ? fullTaco.base_layer.name : null,
+    fullTaco.mixin ? fullTaco.mixin.name : null,
+    fullTaco.condiment ? fullTaco.condiment.name : null,
+    fullTaco.seasoning ? fullTaco.seasoning.name : null,
+    fullTaco.shell ? fullTaco.shell.name : null
+  ]
+
+  const noOfTacoParts = fullTacoArray.filter((taco) => taco !== null).length
+
   return (
     <IntroOuter>
       <div>
@@ -79,24 +90,30 @@ export const TacoIntro = ({ fullTaco }) => {
         <div>
           &#8594; <Link href="https://taco-randomizer.herokuapp.com/">taco-randomizer.herokuapp.com</Link>
         </div>
-        <CategoryContainer>
-          <CategoryType>Type</CategoryType>
-          <Category>Dinner</Category>
-        </CategoryContainer>
-        <CategoryContainer>
-          <CategoryType>Suitable for</CategoryType>
-          <Category>Weekend</Category>
-        </CategoryContainer>
-        <CategoryContainer>
-          <CategoryType>Details</CategoryType>
-          <Category>
-            Main, Base
-            {fullTaco.mixin && ', Mixin'}
-            {fullTaco.condiment && ', Condiment'}
-            {fullTaco.seasoning && ', Sesoning'}
-            {fullTaco.shell && ', Shell'}
-          </Category>
-        </CategoryContainer>
+
+        {fullTaco && (
+          <>
+            <CategoryContainer>
+              <CategoryType>Type</CategoryType>
+              <Category>{noOfTacoParts > 2 ? 'Dinner' : 'Lunch'}</Category>
+            </CategoryContainer>
+            <CategoryContainer>
+              <CategoryType>Suitable for</CategoryType>
+              <Category>{noOfTacoParts > 3 ? 'Weekend' : 'Weekday'}</Category>
+            </CategoryContainer>
+            <CategoryContainer>
+              <CategoryType>Details</CategoryType>
+              <Category>
+                Main, Base
+                {fullTaco.mixin && ', Mixin'}
+                {fullTaco.condiment && ', Condiment'}
+                {fullTaco.seasoning && ', Sesoning'}
+                {fullTaco.shell && ', Shell'}
+              </Category>
+            </CategoryContainer>
+          </>
+        )}
+
         <ButtonContainer>
           <LikeWrapper>
             <Button text="Like" />

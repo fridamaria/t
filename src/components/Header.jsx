@@ -41,7 +41,7 @@ export const Header = ({ tacoCount, setTacoCount }) => {
           <Button
             text={<span role="img" aria-label="eyes">👀</span>}
             onClick={() => setTacoCount(tacoCount + 1)}
-            onHoverBackground="#000"
+            hover="#000"
             border="1px solid #000"
             fontSize="22px" />
         </ButtonWrapper>

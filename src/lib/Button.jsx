@@ -13,17 +13,17 @@ const StyledButton = styled.button`
   line-height: 24px;
 
   &:hover {
-    background: ${(props) => props.onHoverBackground || '#E7E7E9'};
+    background: ${(props) => props.hover || '#E7E7E9'};
     border: ${(props) => props.border || '1px solid #E7E7E9'}
   }
 `
 
-export const Button = ({ text, onClick, onHoverBackground, border, fontSize }) => {
+export const Button = ({ text, onClick, hover, border, fontSize }) => {
   return (
     <StyledButton
       type="button"
       onClick={onClick}
-      onHoverBackground={onHoverBackground}
+      hover={hover}
       border={border}
       fontSize={fontSize}>
       {text}
