@@ -89,6 +89,23 @@ const ReadMoreLink = styled.a`
 export const TacoCard = ({ recipe, imgSlug, recipeName, mainRecipe, info }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false)
 
+  const customModalStyles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      padding: '0',
+      transform: 'translate(-50%, -50%)',
+      maxHeight: '80vh',
+      width: '80vw',
+      maxWidth: '800px',
+      border: '1px solid ',
+      borderRadius: 'none'
+    }
+  }
+
   return (
     <CardOuter>
       <CardInner>
@@ -110,10 +127,12 @@ export const TacoCard = ({ recipe, imgSlug, recipeName, mainRecipe, info }) => {
         <Modal
           isOpen={modalIsOpen}
           onRequestClose={() => setModalIsOpen(!modalIsOpen)}
-          contentLabel="Example Modal">
+          contentLabel="Example Modal"
+          style={customModalStyles}>
           <TacoRecipe
             recipe={mainRecipe ? recipe : recipe.recipe}
-            recipeName={recipeName || recipe.name} />
+            recipeName={recipeName || recipe.name}
+            setModalIsOpen={setModalIsOpen} />
         </Modal>
       </CardInner>
     </CardOuter>
