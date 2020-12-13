@@ -74,7 +74,7 @@ export const TacoIntro = ({ fullTaco }) => {
           {fullTaco.condiment && <span>, garnished with {fullTaco.condiment.name}</span>}
           {fullTaco.seasoning && <span> topped off with {fullTaco.seasoning.name}</span>}
           {fullTaco.shell && <span> and wrapped in {fullTaco.shell.name}</span>}.
-          Grab your Cholula and have a look at the recipe below.
+          Grab your Cholula and have a look at the recipes below.
         </Intro>
         <div>
           &#8594; <Link href="https://taco-randomizer.herokuapp.com/">taco-randomizer.herokuapp.com</Link>
@@ -89,7 +89,13 @@ export const TacoIntro = ({ fullTaco }) => {
         </CategoryContainer>
         <CategoryContainer>
           <CategoryType>Details</CategoryType>
-          <Category>Vegan</Category>
+          <Category>
+            Main, Base
+            {fullTaco.mixin && ', Mixin'}
+            {fullTaco.condiment && ', Condiment'}
+            {fullTaco.seasoning && ', Sesoning'}
+            {fullTaco.shell && ', Shell'}
+          </Category>
         </CategoryContainer>
         <ButtonContainer>
           <LikeWrapper>
