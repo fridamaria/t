@@ -28,6 +28,10 @@ const RecipeOuter = styled.div`
     padding: 40px 0 40px 200px;
     border-bottom: 1px solid #e5e5e5;
     margin: 0;
+
+    @media(max-width: 770px) {
+      padding: 40px 20px;
+    }
   }
 `
 const RecipeTitle = styled.div`
@@ -70,7 +74,7 @@ export const TacoRecipe = ({ recipe, recipeName, setModalIsOpen }) => {
       <Recipe>
         {parse(recipeStripped)}
         <ButtonContainer>
-          <Button text="Close" onClick={() => setModalIsOpen(false)} />
+          <Button onClick={() => setModalIsOpen(false)}>Close</Button>
         </ButtonContainer>
       </Recipe>
     </RecipeOuter>

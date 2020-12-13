@@ -102,7 +102,6 @@ export const TacoCard = ({ recipe, imgSlug, recipeName, mainRecipe, info }) => {
       padding: '0',
       transform: 'translate(-50%, -50%)',
       maxHeight: '80vh',
-      width: '80vw',
       maxWidth: '800px',
       border: '1px solid ',
       borderRadius: 'none'
