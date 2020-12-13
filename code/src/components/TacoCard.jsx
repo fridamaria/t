@@ -125,14 +125,12 @@ export const TacoCard = ({ recipe, imgSlug, recipeName, mainRecipe, info }) => {
             Like
             <SecondaryText>130</SecondaryText>
           </Button>
-          <a>
-            <Button
-              buttonIcon={faAlignLeft}
-              margin="12px"
-              onClick={() => setModalIsOpen(!modalIsOpen)}>
-                Read more
-            </Button>
-          </a>
+          <Button
+            buttonIcon={faAlignLeft}
+            margin="12px"
+            onClick={() => setModalIsOpen(!modalIsOpen)}>
+              Read more
+          </Button>
         </ButtonContainer>
         <Modal
           isOpen={modalIsOpen}
